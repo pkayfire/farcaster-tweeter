@@ -7,7 +7,7 @@ const FARCASTER_USERNAME = process.env.FARCASTER_USERNAME
 let previousLastCast = new Date().getTime()
 
 // Check for new posts 5 minutes
-cron.schedule('*/5 * * * *', async () => {
+cron.schedule('*/5 * * * * *', async () => {
   const casts = await getActivity(FARCASTER_USERNAME).then((res) => {
     // Only return 10 recent casts to save bandwidth
     return res.slice(0, 10)
